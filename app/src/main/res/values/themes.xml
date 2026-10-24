@@ -1,0 +1,18 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Base.Theme.MyApp" parent="Theme.Material3.DayNight.NoActionBar">
+        <!-- Customize your light theme here. -->
+        <item name="colorPrimary">@color/my_light_primary</item>
+
+        <!-- 1. Sets the actual system status bar background color to white -->
+        <item name="android:statusBarColor">@android:color/background_light</item>
+
+        <!-- 2. Forces status bar icons (time, battery, etc.) to turn DARK -->
+        <item name="android:windowLightStatusBar">true</item>
+
+        <!-- Change the background color of the splash screen -->
+        <item name="android:windowSplashScreenBackground">#F0F0FF</item>
+    </style>
+
+    <style name="Theme.MyApp" parent="Base.Theme.MyApp" />
+</resources>

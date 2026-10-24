@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/weather_bg"
+    tools:context="com.rd.myweather.MainActivity">
+
+    <!-- Place this at the top of your activity_main.xml layout -->
+    <com.google.android.material.appbar.MaterialToolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:background="?attr/colorPrimary"
+        app:titleTextColor="@android:color/black"
+        app:title="@string/app_name"
+        app:logo="@mipmap/ic_launcher"
+        app:logoDescription="@string/app_name" />
+
+    <!-- Place this inside the top level ConstraintLayout container -->
+    <LinearLayout
+        android:id="@+id/searchContainer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_below="@+id/toolbar"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="16dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp">
+
+        <AutoCompleteTextView
+            android:id="@+id/etCityInput"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Enter city name (e.g. London)"
+            android:textColor="#fff"
+            android:textColorHint="#ababab"
+            android:inputType="textAutoComplete"
+            android:completionThreshold="3"
+            android:drawableEnd="@drawable/ic_weather"
+            android:drawablePadding="8dp" />
+    <!--
+        <Button
+            android:id="@+id/btnFetch"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:backgroundTint="#F0F0FF"
+            android:textColor="#000"
+            android:text="View Weather" />
+    -->
+    </LinearLayout>
+
+    <!-- Make sure to update your main CardView's top constraint to align below this search container: -->
+    <!-- app:layout_constraintTop_toBottomOf="@id/searchContainer" -->
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/searchContainer"
+        android:layout_centerHorizontal="true" />
+    <!-- tools:listitem="@layout/item_card" -->
+    <!-- app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" -->
+
+    <!-- THE LOADING SPINNER -->
+    <ProgressBar
+        android:id="@+id/progressBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:elevation="4dp"
+        android:visibility="gone" />
+</RelativeLayout>

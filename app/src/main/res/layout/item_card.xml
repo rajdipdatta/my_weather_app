@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Main Weather Container Card -->
+<androidx.cardview.widget.CardView
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    app:cardCornerRadius="24dp"
+    app:cardElevation="2dp"
+    app:cardBackgroundColor="#F0F0FF"
+    android:layout_marginTop="24dp"
+    android:layout_marginStart="8dp"
+    android:layout_marginEnd="8dp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="20dp">
+
+        <!-- Location Marker Icon -->
+        <ImageView
+            android:id="@+id/ivLocationIcon"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:src="@android:drawable/ic_menu_mylocation"
+            app:tint="#1A73E8"
+            app:layout_constraintTop_toTopOf="@id/tvLocationName"
+            app:layout_constraintBottom_toBottomOf="@id/tvLocationName"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <!-- Location Name -->
+        <TextView
+            android:id="@+id/tvLocationName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="6dp"
+            android:text="--"
+            android:textColor="#000000"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toEndOf="@id/ivLocationIcon" />
+
+        <!-- Update Status Timestamp -->
+        <TextView
+            android:id="@+id/tvUpdatedStatus"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Now"
+            android:textColor="#5F6368"
+            android:textSize="14sp"
+            app:layout_constraintTop_toTopOf="@id/tvLocationName"
+            app:layout_constraintBottom_toBottomOf="@id/tvLocationName"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <!-- Thin Horizontal Separator Line -->
+        <View
+            android:id="@+id/divider"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#F1F3F4"
+            android:layout_marginTop="16dp"
+            app:layout_constraintTop_toBottomOf="@id/tvLocationName"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <!-- Large Weather Condition Icon -->
+        <ImageView
+            android:id="@+id/ivWeatherCondition"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:layout_marginTop="24dp"
+            android:src="@android:drawable/ic_menu_compass"
+            app:layout_constraintTop_toBottomOf="@id/divider"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <!-- Main Temperature Text -->
+        <TextView
+            android:id="@+id/tvTemp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:text="-- °C"
+            android:textColor="#000000"
+            android:textSize="54sp"
+            android:textStyle="bold"
+            app:layout_constraintTop_toBottomOf="@id/divider"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <!-- Max - Min Temperature Text -->
+        <TextView
+            android:id="@+id/tvTempMaxMin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="H:-° | L:-°"
+            android:textColor="#000000"
+            android:textSize="12sp"
+            app:layout_constraintTop_toBottomOf="@id/tvTemp"
+            app:layout_constraintBottom_toTopOf="@id/tvWeatherState"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <!-- Dynamic Weather State Label (Sunny, Rainy, etc.) -->
+        <TextView
+            android:id="@+id/tvWeatherState"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:text="Sunny"
+            android:textColor="#5F6368"
+            android:textSize="16sp"
+            app:layout_constraintTop_toBottomOf="@id/tvTempMaxMin"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <!-- Weather Details Mini Grid Container -->
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="12dp"
+            android:layout_marginBottom="16dp"
+            app:layout_constraintTop_toBottomOf="@id/tvWeatherState"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/bottomIndicatorBar">
+
+            <!-- Humidity Metrics Wrap -->
+            <ImageView
+                android:layout_width="16dp"
+                android:layout_height="16dp"
+                android:layout_gravity="center_vertical"
+                android:src="@android:drawable/presence_online"
+                app:tint="#1A73E8" />
+
+            <TextView
+                android:id="@+id/tvHumidityMetric"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="4dp"
+                android:text="42%"
+                android:textColor="#3C4043"
+                android:textSize="14sp" />
+
+            <!-- Wind Speed Metrics Wrap -->
+            <ImageView
+                android:layout_width="16dp"
+                android:layout_height="16dp"
+                android:layout_gravity="center_vertical"
+                android:layout_marginStart="16dp"
+                android:src="@android:drawable/ic_menu_share"
+                app:tint="#34A853" />
+
+            <TextView
+                android:id="@+id/tvWind"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="4dp"
+                android:text="-- km/h"
+                android:textColor="#3C4043"
+                android:textSize="14sp" />
+        </LinearLayout>
+
+
+        <View
+            android:id="@+id/bottomIndicatorBar"
+            android:layout_width="match_parent"
+            android:layout_height="6dp"
+            android:background="#1A73E8"
+            android:layout_marginTop="24dp"
+            app:layout_constraintTop_toBottomOf="@id/ivWeatherCondition"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.cardview.widget.CardView>
